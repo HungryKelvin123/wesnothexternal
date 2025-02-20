@@ -58,12 +58,14 @@ int main() {
     DWORD pid = getPID(processName);
     if (pid == -1) {
         std::cout << "Can't find process\n";
+		system("pause");
         return 1;
     }
 
     HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
     if (!hProcess) {
         std::cout << "Can't get process handle\n";
+		system("pause");
         return 1;
     }
 
@@ -87,5 +89,6 @@ int main() {
     std::cout << "Gold changed to: " << newGold << std::endl;
 
     CloseHandle(hProcess);
+	system("pause");
     return 0;
 }
